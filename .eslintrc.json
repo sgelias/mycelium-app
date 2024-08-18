@@ -1,3 +1,14 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "include": [
+    "./src/**/*"
+  ],
+  "rules": {
+    "max-len": [
+      1,
+      {
+        "code": 100
+      }
+    ]
+  }
 }
