@@ -1,19 +1,14 @@
 import { MyceliumEmail } from "./mycelium-email";
 
-/**
- * Email registration literal status.
- *
- * @description Such status is used to determine whether the user is registered
- * or not.
- */
-export type EmailRegistrationLiteralStatus = undefined
-    | "notRegistered"
-    | "registeredAndInternal"
-    | "registeredButExternal";
-
+interface RegisteredEmail {
+    email: MyceliumEmail;
+    provider?: {
+        external: string;
+    };
+}
 
 export interface EmailRegistrationStatus {
     notRegistered: string;
-    registeredAndInternal: MyceliumEmail;
-    registeredButExternal: MyceliumEmail;
+    registeredAndInternal: RegisteredEmail;
+    registeredButExternal: RegisteredEmail;
 }

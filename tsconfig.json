@@ -39,6 +39,9 @@
       ],
       "@/functions/*": [
         "./src/functions/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
       ]
     }
   },

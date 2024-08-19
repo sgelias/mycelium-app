@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className + " bg-neutral-50 dark:bg-neutral-900"}>
         <NextAuthProvider>
           <Flowbite>
             <AppHeader />

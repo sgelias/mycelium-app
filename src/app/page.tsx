@@ -1,11 +1,13 @@
+import Typography from "@/components/ui/Typography";
+
 export default function Home() {
   return (
     <main>
       <section id="welcome" className="text-center p-12">
-        <h1 className="text-3xl font-bold">Welcome to Mycelium</h1>
-        <p className="text-lg text-gray-600">
+        <Typography as="h1">Welcome to Mycelium</Typography>
+        <Typography>
           Mycelium is a API Gateway and Identity Provider for your applications
-        </p>
+        </Typography>
       </section>
     </main>
   );

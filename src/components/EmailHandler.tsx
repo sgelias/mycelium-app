@@ -38,19 +38,28 @@ export default function EmailHandler({ }: Props) {
 
     if (notRegistered) {
       router.push(`${pathName}/sign-up?email=${notRegistered}`);
+      return;
     }
 
     if (registeredAndInternal) {
-      router.push(`${pathName}/sign-in/password?email=${registeredAndInternal.email()}`);
+      router.push(`${pathName}/sign-in/password?email=${registeredAndInternal.email.toString()}`);
+      return;
     }
 
     if (registeredButExternal) {
+      const external = registeredButExternal.provider?.external;
+
+      if (external && external.toLowerCase().indexOf("google") >= 0) {
+        router.push(`${pathName}/sign-in/oauth2/google`);
+        return;
+      }
+
       router.push(`${pathName}/sign-in/oauth2`);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
       <Controller
         name="email"
         control={control}
@@ -59,7 +68,7 @@ export default function EmailHandler({ }: Props) {
         )}
       />
 
-      <Button type="submit">Check email</Button>
+      <Button className="w-full" type="submit">Check email</Button>
     </form>
   );
 }

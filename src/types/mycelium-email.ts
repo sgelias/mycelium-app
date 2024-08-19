@@ -7,7 +7,7 @@ export class MyceliumEmail {
         this.domain = domain;
     }
 
-    public email(): string {
+    public toString(): string {
         return `${this.username}@${this.domain}`;
     }
 
