@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Flowbite } from "flowbite-react";
 import NextAuthProvider from "./providers/next-auth";
-import AppHeader from "@/components/ui/AppHeader";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +24,6 @@ export default function RootLayout({
       <body className={inter.className + " bg-neutral-50 dark:bg-neutral-900"}>
         <NextAuthProvider>
           <Flowbite>
-            <AppHeader />
             {children}
           </Flowbite>
         </NextAuthProvider>

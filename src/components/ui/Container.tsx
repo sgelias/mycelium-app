@@ -10,7 +10,7 @@ import { cva, VariantProps } from "class-variance-authority";
 const containerStyles = cva("text-gray-500 dark:text-gray-50", {
   variants: {
     type: {
-      screen: "bg-neutral-100 dark:bg-neutral-900 min-h-screen",
+      screen: "bg-neutral-200 dark:bg-neutral-900 min-h-screen",
     }
   },
   defaultVariants: {
@@ -35,7 +35,7 @@ function ScreenContainer({ type, ...props }: ScreenContainerProps) {
 const boxStyles = cva("text-gray-500 dark:text-gray-50", {
   variants: {
     type: {
-      highlight: "bg-white dark:bg-neutral-800 shadow-md rounded-lg border-2 dark:border-indigo-900 p-4",
+      highlight: "bg-gray-100 dark:bg-neutral-800 shadow-md rounded-lg border-2 dark:border-indigo-900 p-4",
       discreet: "bg-transparent p-4",
     }
   },

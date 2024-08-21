@@ -3,7 +3,8 @@
 import { usePathname, useRouter } from "next/navigation";
 import { checkEmailStatus } from "@/services/email.service";
 import { useForm, SubmitHandler, Controller } from "react-hook-form"
-import { Button, TextInput } from "flowbite-react";
+import { TextInput } from "flowbite-react";
+import Button from "./ui/Button";
 
 interface IFormInput {
   email: string
@@ -68,7 +69,7 @@ export default function EmailHandler({ }: Props) {
         )}
       />
 
-      <Button className="w-full" type="submit">Check email</Button>
+      <Button fullWidth>Check email</Button>
     </form>
   );
 }

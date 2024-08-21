@@ -1,11 +1,17 @@
 "use client";
 
+import Button from "@/components/ui/Button";
 import { GoogleProvider } from "@/components/ui/icons";
 import { IdentityProvider } from "@/types/identity-provider";
-import { Button } from "flowbite-react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Oauth2Page() {
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  if (session) router.push("/profile");
+
   return (
     <>
       <Button
@@ -14,9 +20,8 @@ export default function Oauth2Page() {
           redirect: false
         })}
         role="button"
-        fullSized
-        className="text-gray-500 font-bold p-3 flex justify-center align-middle items-center rounded-lg border border-gray-300 hover:bg-gray-100 hover:border-gray-400"
-        color="white"
+        fullWidth
+        intent="link"
       >
         <GoogleProvider />
       </Button>

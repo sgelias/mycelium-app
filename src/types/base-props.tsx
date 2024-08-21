@@ -1,3 +1,3 @@
 interface BaseProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
