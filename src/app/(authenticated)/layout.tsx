@@ -1,14 +1,15 @@
 import AppHeader from "@/components/ui/AppHeader";
+import Container from "@/components/ui/Container";
 import Sidebar from "@/components/ui/Sidebar";
 
 export default function AuthenticatedLayout({ children }: BaseProps) {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="w-full bg-neutral-200 dark:bg-neutral-800">
+      <Container>
         <AppHeader discrete />
         {children}
-      </div>
+      </Container>
     </div>
   );
 }

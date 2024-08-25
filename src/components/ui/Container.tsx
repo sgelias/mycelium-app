@@ -10,7 +10,7 @@ import { cva, VariantProps } from "class-variance-authority";
 const containerStyles = cva("text-gray-500 dark:text-gray-50", {
   variants: {
     type: {
-      screen: "bg-neutral-200 dark:bg-neutral-900 min-h-screen",
+      screen: "bg-slate-00 dark:bg-slate-900 min-h-screen w-full",
     }
   },
   defaultVariants: {

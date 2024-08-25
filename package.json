@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
+    "flowbite": "^2.5.1",
     "flowbite-react": "^0.10.1",
     "next": "14.2.5",
     "next-auth": "^4.24.7",

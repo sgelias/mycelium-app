@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 const styles = cva("text-gray-500 dark:text-gray-50", {
   variants: {
     as: {
-      p: "px-3 py-1 text-gray-700 dark:text-gray-200",
+      p: "py-1 text-gray-700 dark:text-gray-200",
       span: "text-gray-700 dark:text-gray-200",
       title: "text-5xl font-bold",
       h1: "text-3xl font-bold",
@@ -28,13 +28,13 @@ const styles = cva("text-gray-500 dark:text-gray-50", {
       xl: "px-16 py-16",
     },
     reverseBackground: {
-      true: "text-gray-200 dark:text-gray-200",
+      true: "text-gray-50 dark:text-gray-200",
     },
   },
   defaultVariants: {
     as: "p",
     margin: "none",
-    padding: "md",
+    padding: "none",
     reverseBackground: false,
   },
 });

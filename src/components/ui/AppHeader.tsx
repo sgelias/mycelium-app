@@ -5,7 +5,6 @@ import { MdDarkMode } from "react-icons/md";
 import { cva, VariantProps } from "class-variance-authority";
 import { useThemeMode } from "flowbite-react";
 import Typography from "./Typography";
-import { useEffect } from "react";
 import Link from "next/link";
 
 const appHeaderStyles = cva("text-gray-500 dark:text-gray-50 rounded-lg", {
@@ -25,7 +24,7 @@ interface AppHeaderProps extends BaseProps, VariantProps<typeof appHeaderStyles>
 export default function AppHeader({ discrete, ...props }: AppHeaderProps) {
   return (
     <header className={appHeaderStyles({ discrete })} {...props}>
-      <div className="container mx-auto p-0 flex justify-between align-middle">
+      <div className="container mx-auto py-3 flex justify-between align-middle">
         <Typography as="h2" reverseBackground={!discrete}>
           <Link href="/">Mycelium</Link>
         </Typography>

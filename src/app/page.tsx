@@ -1,8 +1,19 @@
+import { cva } from "class-variance-authority";
 import AppHeader from "@/components/ui/AppHeader";
 import Container from "@/components/ui/Container";
 import { GoogleProvider } from "@/components/ui/icons";
 import Typography from "@/components/ui/Typography";
 import Link from "next/link";
+
+const signStyles = cva("max-w-lg min-w-max text-4xl border-2 border-white p-12 rounded-full dark:bg-slate-800 bg-slate-50 hover:bg-indigo-700 text-gray-800 dark:text-white hover:text-white", {
+  variants: {
+    flex: {
+      true: "flex items-center justify-center gap-4",
+    },
+  },
+  defaultVariants: {
+  },
+});
 
 export default function Home() {
   return (
@@ -16,19 +27,19 @@ export default function Home() {
         </Typography>
       </section>
 
-      <section id="sign" className="bg-indigo-700 min-h-[50vh] flex flex-col justify-center text-center items-center gap-12 p-12">
+      <section id="sign" className="bg-indigo-500 dark:bg-indigo-700 min-h-[50vh] flex flex-col justify-center text-center items-center gap-12 p-12">
         <Typography as="h2" reverseBackground>Identify yourself</Typography>
 
         <Link
           href="/auth/sign-up"
-          className="max-w-lg min-w-max text-4xl border-2 border-white p-12 rounded-full bg-gray-800 hover:bg-indigo-700 text-white hover:text-white"
+          className={signStyles({})}
         >
           Sign-up to Mycelium
         </Link>
 
         <Link
           href="/auth/sign-in/oauth2/google"
-          className="max-w-lg min-w-max text-4xl border-2 border-white p-12 rounded-full bg-gray-800 hover:bg-indigo-700 text-white hover:text-white flex items-center justify-center gap-4"
+          className={signStyles({ flex: true })}
         >
           Sign-in with <GoogleProvider size="lg" />
         </Link>
