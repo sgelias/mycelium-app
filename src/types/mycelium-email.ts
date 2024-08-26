@@ -1,3 +1,5 @@
+import { Email } from "./accounts";
+
 export class MyceliumEmail {
     private username: string;
     private domain: string;
@@ -17,5 +19,9 @@ export class MyceliumEmail {
 
     public getDomain(): string {
         return this.domain;
+    }
+
+    public static fromEmailInterface(email: Email): MyceliumEmail {
+        return new MyceliumEmail(email.username, email.domain);
     }
 }

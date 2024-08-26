@@ -43,7 +43,9 @@ export default function EmailHandler({ }: Props) {
     }
 
     if (registeredAndInternal) {
-      router.push(`${pathName}/sign-in/password?email=${registeredAndInternal.email.toString()}`);
+      const email = registeredAndInternal.email.toString();
+      console.log(email);
+      router.push(`${pathName}/sign-in/password?email=${email}`);
       return;
     }
 

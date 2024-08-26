@@ -28,7 +28,7 @@ const styles = cva("text-gray-500 dark:text-gray-50", {
       xl: "px-16 py-16",
     },
     reverseBackground: {
-      true: "text-gray-50 dark:text-gray-200",
+      true: "!text-gray-100 !dark:text-gray-200",
     },
   },
   defaultVariants: {

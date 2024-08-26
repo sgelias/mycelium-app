@@ -1,7 +1,6 @@
 "use client";
 
-import { MdLightMode } from "react-icons/md";
-import { MdDarkMode } from "react-icons/md";
+import { CgDarkMode } from "react-icons/cg";
 import { cva, VariantProps } from "class-variance-authority";
 import { useThemeMode } from "flowbite-react";
 import Typography from "./Typography";
@@ -36,10 +35,10 @@ export default function AppHeader({ discrete, ...props }: AppHeaderProps) {
   );
 }
 
-const themeSwitchStyles = cva("text-2xl cursor-pointer", {
+const themeSwitchStyles = cva("text-indigo-600 dark:text-yellow-400 text-2xl cursor-pointer", {
   variants: {
     reverseBackground: {
-      true: "text-white dark:text-gray-800",
+      true: "text-gray-50 dark:text-gray-600",
     }
   },
   defaultVariants: {
@@ -57,11 +56,7 @@ function ThemeSwitch({ reverseBackground }: ThemeSwitchProps) {
       onClick={() => theme.setMode(theme.mode === "dark" ? "light" : "dark")}
       className={themeSwitchStyles({ reverseBackground })}
     >
-      {["dark", "auto"].includes(theme.mode) ? (
-        <MdLightMode className="text-yellow-400" />
-      ) : (
-        <MdDarkMode className="text-indigo-600" />
-      )}
+      <CgDarkMode />
     </div>
   )
 }

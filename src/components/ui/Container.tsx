@@ -10,18 +10,27 @@ import { cva, VariantProps } from "class-variance-authority";
 const containerStyles = cva("text-gray-500 dark:text-gray-50", {
   variants: {
     type: {
-      screen: "bg-slate-00 dark:bg-slate-900 min-h-screen w-full",
+      screen: "bg-slate-50 dark:bg-slate-900 min-h-screen w-full",
+    },
+    padding: {
+      none: "p-0",
+      xs: "p-2",
+      sm: "p-4",
+      md: "p-8",
+      lg: "p-12",
+      xl: "p-16",
     }
   },
   defaultVariants: {
     type: "screen",
+    padding: "none",
   }
 });
 
 interface ScreenContainerProps extends BaseProps, VariantProps<typeof containerStyles> { }
 
-function ScreenContainer({ type, ...props }: ScreenContainerProps) {
-  return <main className={containerStyles({ type })} {...props} />;
+function ScreenContainer({ type, padding, ...props }: ScreenContainerProps) {
+  return <main className={containerStyles({ type, padding })} {...props} />;
 }
 
 // ? ---------------------------------------------------------------------------

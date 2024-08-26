@@ -8,6 +8,7 @@ import { IdentityProvider } from "@/types/identity-provider";
 import HandleMyceliumSignUp from "@/components/HandleMyceliumSignUp";
 import { GoogleProvider } from "@/components/ui/icons";
 import Head from "./head";
+import Divider from "@/components/ui/Divider";
 
 interface Props { }
 
@@ -60,11 +61,7 @@ export default function Page({ }: Props) {
             lastName=""
           />
 
-          <div className="flex w-full items-center justify-between py-12">
-            <hr className="w-full" />
-            <span className="text-sm px-2 uppercase">or</span>
-            <hr className="w-full" />
-          </div>
+          <Divider orOption />
 
           <p className="text-xl mb-5 max-w-xs whitespace-pre">
             Sign-up with a identity provider

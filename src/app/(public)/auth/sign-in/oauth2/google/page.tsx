@@ -2,8 +2,9 @@
 
 import Button from "@/components/ui/Button";
 import { GoogleProvider } from "@/components/ui/icons";
+import signInWith from "@/functions/sign-in-with";
 import { IdentityProvider } from "@/types/identity-provider";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function Oauth2Page() {
@@ -15,10 +16,7 @@ export default function Oauth2Page() {
   return (
     <>
       <Button
-        onClick={() => signIn(IdentityProvider.GOOGLE, {
-          callbackUrl: "/profile",
-          redirect: false
-        })}
+        onClick={() => signInWith(IdentityProvider.GOOGLE)}
         role="button"
         fullWidth
         intent="link"

@@ -7,7 +7,7 @@ interface Props { }
 
 export default function Page({ }: Props) {
   const handleSignOut = () => {
-    signOut({ callbackUrl: "/auth" });
+    signOut({ callbackUrl: "/" });
   }
 
   return (

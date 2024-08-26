@@ -1,4 +1,4 @@
 export enum IdentityProvider {
-    MYCELIUM = "mycelium",
+    MYCELIUM = "email",
     GOOGLE = "google",
 }

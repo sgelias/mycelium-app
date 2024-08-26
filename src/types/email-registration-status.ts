@@ -4,6 +4,7 @@ interface RegisteredEmail {
     email: MyceliumEmail;
     provider?: {
         external: string;
+        internal: {};
     };
 }
 
