@@ -1,10 +1,15 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { AriaRole } from "react";
 
-const styles = cva("text-gray-500 dark:text-gray-50 rounded-lg", {
+const styles = cva("text-gray-500 dark:text-gray-50", {
   variants: {
     fullWidth: {
       true: "w-full",
+    },
+    rounded: {
+      true: "rounded-full",
+      left: "rounded-l-full",
+      right: "rounded-r-full",
     },
     intent: {
       primary: "bg-indigo-500 hover:bg-blue-600 text-white",
@@ -24,6 +29,7 @@ const styles = cva("text-gray-500 dark:text-gray-50 rounded-lg", {
     fullWidth: false,
     intent: "primary",
     size: "md",
+    rounded: false,
   },
 });
 
@@ -37,12 +43,13 @@ export default function Button({
   intent,
   size,
   role,
+  rounded,
   onClick,
   ...props
 }: Props) {
   return <button
     onClick={onClick}
-    className={styles({ fullWidth, intent, size })}
+    className={styles({ fullWidth, intent, size, rounded })}
     {...props}
   />;
 }

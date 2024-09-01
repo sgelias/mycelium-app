@@ -97,7 +97,7 @@ export default function Page({ }: Props) {
         </Typography>
         <Image
           alt="Mindfulness"
-          src="/undrow.co/undraw_powerful_re_frhr.svg"
+          src="/undraw.co/undraw_powerful_re_frhr.svg"
           width={500}
           height={500}
         />

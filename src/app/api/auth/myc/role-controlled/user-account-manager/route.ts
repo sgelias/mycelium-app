@@ -7,10 +7,16 @@ export async function GET(req: Request) {
         const session = await ssrRequireSessionToken({ asHeader: true }) as AuthorizationHeader;
 
         const { searchParams } = new URL(req.url);
+        const term = searchParams.get('term');
+        const tagValue = searchParams.get('tagValue');
+        const skip = searchParams.get('skip');
         const pageSize = searchParams.get('pageSize');
 
         const params = new URLSearchParams();
         params.append('isSubscription', 'false');
+        if (term) params.append('term', term);
+        if (tagValue) params.append('tagValue', tagValue);
+        if (skip) params.append('skip', skip);
         if (pageSize) params.append('pageSize', pageSize);
 
         const url = `${MYC_SUBSCRIPTION_ACCOUNT_MANAGERS}/accounts/?${params.toString()}`;
@@ -18,7 +24,8 @@ export async function GET(req: Request) {
         const data = await fetch(url, { headers: session })
             .then((res) => {
                 if (res.status === 403) return null;
-                return res.json();
+                if (res.ok && res.status === 200) return res.json();
+                if (res.ok && res.status === 204) return [];
             })
             .catch((err) => {
                 console.error(err);

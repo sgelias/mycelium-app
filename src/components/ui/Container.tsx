@@ -27,10 +27,21 @@ const containerStyles = cva("text-gray-500 dark:text-gray-50", {
   }
 });
 
-interface ScreenContainerProps extends BaseProps, VariantProps<typeof containerStyles> { }
+interface ScreenContainerProps extends
+  BaseProps,
+  VariantProps<typeof containerStyles> { }
 
-function ScreenContainer({ type, padding, ...props }: ScreenContainerProps) {
-  return <main className={containerStyles({ type, padding })} {...props} />;
+function ScreenContainer({
+  type,
+  children,
+  padding,
+  ...props
+}: ScreenContainerProps) {
+  return (
+    <main className={containerStyles({ type, padding })} {...props}>
+      {children}
+    </main>
+  );
 }
 
 // ? ---------------------------------------------------------------------------
