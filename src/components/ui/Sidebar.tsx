@@ -4,7 +4,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { Tooltip } from "flowbite-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaUsers } from "react-icons/fa";
+import { FaAddressCard } from "react-icons/fa";
 import { GrOrganization } from "react-icons/gr";
 import { LiaSignOutAltSolid } from "react-icons/lia";
 import { RiProfileFill } from "react-icons/ri";
@@ -32,12 +32,8 @@ export default function Sidebar({ ...props }: Props) {
           <RiProfileFill className="text-3xl" />
         </Link>
 
-        <Link href="/accounts/users" className="border-2 border-white dark:border-lime-500 rounded-full p-2 dark:text-lime-500 flex">
-          <FaUsers className="text-3xl" />
-        </Link>
-
         <Link href="/accounts/subscriptions" className="border-2 border-white dark:border-lime-500 rounded-full p-2 dark:text-lime-500 flex">
-          <GrOrganization className="text-3xl" />
+          <FaAddressCard className="text-3xl" />
         </Link>
       </div>
 

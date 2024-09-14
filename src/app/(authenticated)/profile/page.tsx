@@ -10,6 +10,7 @@ import useMemoizedPermissions from "@/hooks/use-memoized-permissions";
 import { Tooltip } from "flowbite-react";
 import Image from "next/image";
 import { Fragment } from "react";
+import PageBody from "@/components/ui/PageBody";
 
 interface Props { }
 
@@ -17,7 +18,7 @@ export default function Page({ }: Props) {
   const { profile } = useMemoizedPermissions();
 
   return profile && (
-    <div className="container mx-auto py-4 flex gap-3 h-[92vh]">
+    <PageBody flex gap={3}>
       <Card>
         <Card.Header>
           <Tooltip content={`Registered Account Owners: ${profile?.owners ? profile?.owners.length : 0}`} placement="right">
@@ -42,22 +43,27 @@ export default function Page({ }: Props) {
                 </Tooltip>
 
                 {(profile.isManager || profile.isStaff) && (
-                  <div className="flex gap-3 my-5 align-middle items-center">
-                    {profile.isStaff && (
-                      <Tooltip content="Staff User">
-                        <div className="border rounded-lg p-1 border-gray-600 dark:border-lime-500">
-                          <GiGearHammer className="inline dark:text-lime-500 text-2xl" />
-                        </div>
-                      </Tooltip>
-                    )}
+                  <div className="my-5">
+                    <Tooltip content="Users with special roles receive insignia">
+                      <h3 className="my-2">Insignia</h3>
+                    </Tooltip>
+                    <div className="flex gap-3 align-middle items-center">
+                      {profile.isStaff && (
+                        <Tooltip content="Staff User">
+                          <div className="border rounded-lg p-1 border-gray-600 dark:border-lime-500">
+                            <GiGearHammer className="inline dark:text-lime-500 text-2xl" />
+                          </div>
+                        </Tooltip>
+                      )}
 
-                    {profile.isManager && (
-                      <Tooltip content="Manager User">
-                        <div className="border rounded-lg p-1 border-gray-600 dark:border-lime-500">
-                          <GrUserManager className="inline dark:text-lime-500 text-2xl" />
-                        </div>
-                      </Tooltip>
-                    )}
+                      {profile.isManager && (
+                        <Tooltip content="Manager User">
+                          <div className="border rounded-lg p-1 border-gray-600 dark:border-lime-500">
+                            <GrUserManager className="inline dark:text-lime-500 text-2xl" />
+                          </div>
+                        </Tooltip>
+                      )}
+                    </div>
                   </div>
                 )}
               </Fragment>
@@ -102,6 +108,6 @@ export default function Page({ }: Props) {
           height={500}
         />
       </div>
-    </div>
+    </PageBody>
   );
 }

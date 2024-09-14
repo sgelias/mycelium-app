@@ -4,7 +4,7 @@ import Sidebar from "@/components/ui/Sidebar";
 
 export default function AuthenticatedLayout({ children }: BaseProps) {
   return (
-    <div className="flex">
+    <div className="flex max-h-screen overflow-hidden">
       <Sidebar />
       <Container>
         <AppHeader discrete />

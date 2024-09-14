@@ -9,6 +9,7 @@ import HandleMyceliumSignUp from "@/components/HandleMyceliumSignUp";
 import { GoogleProvider } from "@/components/ui/icons";
 import Head from "./head";
 import Divider from "@/components/ui/Divider";
+import PageBody from "@/components/ui/PageBody";
 
 interface Props { }
 
@@ -49,7 +50,7 @@ export default function Page({ }: Props) {
   }
 
   return (
-    <>
+    <PageBody>
       <Head />
 
       {provider === IdentityProvider.MYCELIUM && !shouldSignUpWithData && (
@@ -97,6 +98,6 @@ export default function Page({ }: Props) {
           </p>
         </div>
       )}
-    </>
+    </PageBody>
   );
 }
